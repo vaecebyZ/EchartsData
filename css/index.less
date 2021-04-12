@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: electronicFont;
+  src: url(../font/DS-DIGIT.TTF);
+}
+
 body {
   background: url(../img/bg.jpg)no-repeat top center;
   line-height: 1.15;
@@ -12,11 +17,12 @@ body {
 
 
 
-header{
-    height: 1.25rem;
-    background: url(../img/head_bg.png) no-repeat;
-    background-size: 100% 100%;
-  h1{
+header {
+  height: 1.25rem;
+  background: url(../img/head_bg.png) no-repeat;
+  background-size: 100% 100%;
+
+  h1 {
     font-size: .475rem;
     color: white;
     line-height: 1rem;
@@ -26,19 +32,231 @@ header{
 
 //主体盒子
 
-#mainBox{
+#mainBox {
   display: flex;
-  min-width:1024px;
+  min-width: 1024px;
   max-width: 1920px;
   margin: 0 auto;
-  padding: .125rem .125rem 0rem ;
+  padding: .125rem .125rem 0rem;
 
   color: white;
-  .column{
+
+  .column {
     flex: 3;
   }
-  .column:nth-child(2){
+
+  .column:nth-child(2) {
     flex: 5;
+    margin: 0 .125rem .1875rem;
+  }
+
+  .panel {
+    position: relative;
+    height: 3.875rem;
+    border: 1px solid rgba(15, 186, 139, 0.17);
+    background: url(../img/line.png) rgba(255, 255, 255, 0.03);
+    padding: 0 .1875rem .5rem;
+    margin-bottom: .1875rem;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid #02a6b5;
+      border-left: 2px solid #02a6b5;
+      content: " ";
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid #02a6b5;
+      border-right: 2px solid #02a6b5;
+      content: " ";
+    }
+
+    .footer {
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid #02a6b5;
+        border-left: 2px solid #02a6b5;
+        content: " ";
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid #02a6b5;
+        border-right: 2px solid #02a6b5;
+        content: " ";
+      }
+    }
+
+    h2 {
+      height: .6rem;
+      line-height: .6rem;
+      text-align: center;
+      font-size: .25rem;
+      font-weight: 400;
+    }
+
+    .chart {
+      height: 3rem;
+      background-color: skyblue;
+    }
+
+  }
+
+  .no {
+    background-color: rgba(101, 132, 226, 0.1);
+    padding: .1875rem;
+
+    .no-hd {
+      border: 1px solid rgba(25, 186, 139, 0.17);
+
+      ul {
+        position: relative;
+        display: flex;
+
+        li {
+          list-style-type: none;
+          text-align: center;
+          flex: 1;
+          height: 1rem;
+          font-family: 'electronicFont';
+          font-size: .875rem;
+          color: #ffeb7b;
+
+          &:nth-child(1) {
+            position: relative;
+
+            &::after {
+              position: absolute;
+              height: 50%;
+              top: 25%;
+              right: 0;
+              border-right: 2px solid rgba(255, 255, 255, 0.2);
+              content: "";
+            }
+          }
+        }
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-top: 2px solid #02a6b5;
+          border-left: 2px solid #02a6b5;
+          content: "   ";
+          width: 30px;
+          height: 20px;
+        }
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          border-bottom: 2px solid #02a6b5;
+          border-right: 2px solid #02a6b5;
+          content: "   ";
+          width: 30px;
+          height: 20px;
+        }
+      }
+
+    }
+
+    .no-bd {
+      ul {
+        display: flex;
+
+        li {
+          flex: 1;
+          height: .5rem;
+          line-height: .5rem;
+          color: rgba(255, 255, 255, 0.7);
+          font-size: .225rem;
+          padding-top: .125rem;
+          list-style-type: none;
+          text-align: center;
+        }
+      }
+
+
+    }
+  }
+
+  .map {
+    position: relative;
+    height: 10.125rem;
+
+    .map1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6.475rem;
+      height: 6.475rem;
+      background: url(../img/map.png) no-repeat;
+      background-size: 100% 100%;
+      opacity: .3;
+    }
+
+    .map2 {
+      width: 8.0375rem;
+      height: 8.0375rem;
+      background: url(../img/lbx.png) no-repeat;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotateLine 10s linear infinite;
+      opacity: .6;
+    }
+
+    @keyframes rotateLine {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .map3{
+      width: 7.075rem;
+      height: 7.075rem;
+      background: url(../img/jt.png) no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      animation: rotateLine 15s linear reverse infinite;
+      opacity: .6;
+    }
+
+    .chart{
+      position:absolute;
+      top:0;
+      left: 0;
+      height: 10.125rem;
+      width: 100%;
+     // background: orange;
+    }
   }
 
 }
